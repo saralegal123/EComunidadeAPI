@@ -8,6 +8,7 @@ namespace EComunidadeAPI.Models
 {
     public class Evento
     {
+        [Key]
         public int IdEvento { get; set; }
 
         public string TituloEvento  { get; set; }
@@ -28,5 +29,7 @@ namespace EComunidadeAPI.Models
 
         public SituacaoEnum Situacao { get; set;} 
 
+        [ForeignKey("Usuario")]
+        public int IdUsuario { get; set; }
     }
 }

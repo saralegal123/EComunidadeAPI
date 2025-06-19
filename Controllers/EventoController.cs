@@ -19,12 +19,11 @@ using EComunidadeAPI.Extensions;
 namespace EComunidadeAPI.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
-    public class EventoController : ControllerBase
-    {
-        private readonly DataContext _context;
-
-       public EventoController(DataContext context)
+   [Route("[controller]")]
+   public class EventoController : ControllerBase
+   {
+       private readonly AppDbContext _context;
+       public EventoController(AppDbContext context)
        {
            _context = context;
        }
@@ -46,12 +45,12 @@ namespace EComunidadeAPI.Controllers
        {
            _context.Eventos.Add(evento);
            await _context.SaveChangesAsync();
-           return CreatedAtAction(nameof(GetEvento), new { id = evento.Id }, evento);
+           return CreatedAtAction(nameof(GetEvento), new { id = evento.IdEvento }, evento);
        }
        [HttpPut("{id}")]
        public async Task<IActionResult> PutEvento(int id, Evento evento)
        {
-           if (id != evento.Id)
+           if (id != evento.IdEvento)
                return BadRequest();
            _context.Entry(evento).State = EntityState.Modified;
            await _context.SaveChangesAsync();
@@ -66,6 +65,6 @@ namespace EComunidadeAPI.Controllers
            _context.Eventos.Remove(evento);
            await _context.SaveChangesAsync();
            return NoContent();
-        }   
+       }
     }
 }
