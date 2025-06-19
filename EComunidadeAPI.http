@@ -1,0 +1,6 @@
+@EComunidadeAPI_HostAddress = http://localhost:5117
+
+GET {{EComunidadeAPI_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
