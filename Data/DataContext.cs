@@ -14,7 +14,7 @@ namespace EComunidadeAPI.Data
         {
             
         }
+        public DbSet<Evento> Eventos { get; set; }
 
-        public DbSet<Evento> TB_EVENTOS { get; set; }
     }
 }

@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using EComunidadeAPI.Models.Enuns;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+
 
 namespace EComunidadeAPI.Models
 {
@@ -11,13 +14,13 @@ namespace EComunidadeAPI.Models
         [Key]
         public int IdEvento { get; set; }
 
-        public string TituloEvento  { get; set; }
+        public string? TituloEvento  { get; set; }
 
-        public string DescricaoEvento { get; set; }
+        public string? DescricaoEvento { get; set; }
 
-        public string DataEvento { get; set; }
+        public string? DataEvento { get; set; }
 
-        public string HoraEvento { get; set;}
+        public string? HoraEvento { get; set;}
 
         public int QtVoluntarios { get; set; }
 
@@ -25,7 +28,7 @@ namespace EComunidadeAPI.Models
 
         public int PontuacaoEvento { get; set; }
 
-        public string LocalEvento { get; set; }
+        public string? LocalEvento { get; set; }
 
         public SituacaoEnum Situacao { get; set;} 
 

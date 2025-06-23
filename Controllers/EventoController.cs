@@ -11,10 +11,11 @@ using EComunidadeAPI.Models.Enuns;
 using System.Security.Claims;
 using Microsoft.IdentityModel.Tokens; 
 using System.Text; 
-using System;
 using System.IdentityModel.Tokens.Jwt;
 using Microsoft.AspNetCore.Authorization;
 using EComunidadeAPI.Extensions;
+
+
 
 namespace EComunidadeAPI.Controllers
 {
@@ -22,8 +23,8 @@ namespace EComunidadeAPI.Controllers
    [Route("[controller]")]
    public class EventoController : ControllerBase
    {
-       private readonly AppDbContext _context;
-       public EventoController(AppDbContext context)
+       private readonly DataContext _context;
+       public EventoController(DataContext context)
        {
            _context = context;
        }
