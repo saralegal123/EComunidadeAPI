@@ -1,5 +1,9 @@
 using Microsoft.EntityFrameworkCore;
 using EComunidadeAPI.Data;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
+
  
 var builder = WebApplication.CreateBuilder(args);
  
@@ -11,6 +15,20 @@ builder.Services.AddDbContext<DataContext>(options =>
 builder.Services.AddOpenApi();
 builder.Services.AddControllers();
  
+ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+   .AddJwtBearer(options =>
+   {
+       options.TokenValidationParameters = new TokenValidationParameters
+       {
+           ValidateIssuerSigningKey = true,
+           IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8
+               .GetBytes(builder.Configuration["ConfiguracaoToken:Chave"])),
+           ValidateIssuer = false,
+           ValidateAudience = false
+       };
+   });
+
+builder.Services.AddAuthorization();
 var app = builder.Build();
  
 if (app.Environment.IsDevelopment())
@@ -19,6 +37,9 @@ if (app.Environment.IsDevelopment())
 }
  
 app.UseHttpsRedirection();
+
+app.UseAuthentication();
+app.UseAuthorization();
  
 var summaries = new[]
 {
