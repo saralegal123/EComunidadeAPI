@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace EComunidadeAPI.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20250628002405_AdicionaCamposUsuario")]
-    partial class AdicionaCamposUsuario
+    [Migration("20250628020319_Eventos")]
+    partial class Eventos
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -66,39 +66,6 @@ namespace EComunidadeAPI.Migrations
                     b.HasKey("IdEvento");
 
                     b.ToTable("Eventos", (string)null);
-                });
-
-            modelBuilder.Entity("EComunidadeAPI.Models.Usuario", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<string>("CEP")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Email")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Nome")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Senha")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Telefone")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Usuario", (string)null);
                 });
 #pragma warning restore 612, 618
         }
