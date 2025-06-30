@@ -27,8 +27,6 @@ CREATE TABLE [Eventos] (
 INSERT INTO [__EFMigrationsHistory] ([MigrationId], [ProductVersion])
 VALUES (N'20250623224758_InitialCreate', N'9.0.6');
 
-DROP TABLE [Usuario];
-
 INSERT INTO [__EFMigrationsHistory] ([MigrationId], [ProductVersion])
 VALUES (N'20250628020319_Eventos', N'9.0.6');
 
